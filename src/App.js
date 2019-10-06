@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {Query} from 'react-apollo';
+import UserSearch from './graphql/queries/UserSearch';
+import debounce from "./util/debounce";
 
 function App() {
+  const [query, setQuery] = useState('');
+
+  function handleChange(e) {
+    const terms = e.target.value;
+    debounce(() => {
+      setQuery(terms);
+    }, 200);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input onChange={handleChange} placeholder="Search" />
+      <Query query={UserSearch} variables={{query, first: 10}}>
+        {(({data, loading}) => (
+          loading ? "Loading" : <pre>{JSON.stringify(data, 2, 2)}</pre>
+        ))}
+      </Query>
     </div>
   );
 }
