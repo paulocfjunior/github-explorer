@@ -4,5 +4,15 @@
     "jest": true
   },
   "extends": ["airbnb", "prettier", "prettier/react"],
-  "plugins": ["prettier"]
+  "plugins": ["prettier", "react-hooks", "sort-imports-es6-autofix"],
+  "rules": {
+    "react/prop-types": "off",
+    "sort-imports-es6-autofix/sort-imports-es6": ["error", {
+      "ignoreCase": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+    }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
 }
