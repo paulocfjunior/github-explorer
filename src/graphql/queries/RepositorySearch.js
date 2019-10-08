@@ -13,6 +13,7 @@ export default gql`
       edges {
         node {
           ... on Repository {
+            name
             nameWithOwner
             description
             openGraphImageUrl

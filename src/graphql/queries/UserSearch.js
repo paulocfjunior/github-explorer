@@ -29,6 +29,17 @@ export default gql`
             createdAt
             updatedAt
           }
+          ... on Organization {
+            avatarUrl
+            name
+            description
+            url
+            websiteUrl
+            location
+            login
+            createdAt
+            updatedAt
+          }
         }
       }
     }
