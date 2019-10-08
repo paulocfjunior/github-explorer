@@ -1,0 +1,39 @@
+.SearchBox {
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 18px;
+  position: relative;
+  width: 44%;
+
+  input {
+    background-color: #eee;
+    border: none;
+    font-family: Montserrat;
+    font-size: 24px;
+    outline: none;
+    padding: 18px;
+    transition: all 300ms ease-in-out;
+    border-radius: 10px;
+
+    &:hover,
+    &:focus {
+      transform: translateY(-3px);
+      background-color: #ededed;
+      box-shadow: 0 12px 24px -24px #333;
+
+      + .fa-search {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  .fa-search {
+    color: rgba(100, 100, 100, 0.5);
+    font-size: 24px;
+    position: absolute;
+    right: 30px;
+    transition: all 300ms ease-in-out;
+  }
+}
