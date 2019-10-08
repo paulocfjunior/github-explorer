@@ -6,11 +6,12 @@
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["prettier", "react-hooks", "sort-imports-es6-autofix"],
   "rules": {
+    "import/prefer-default-export": "off",
     "react/prop-types": "off",
+    "no-underscore-dangle": "off",
     "sort-imports-es6-autofix/sort-imports-es6": ["error", {
       "ignoreCase": false,
-      "ignoreMemberSort": false,
-      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      "ignoreMemberSort": false
     }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"

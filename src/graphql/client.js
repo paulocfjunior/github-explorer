@@ -1,8 +1,8 @@
-import ApolloClient from "apollo-boost";
 import {
   InMemoryCache,
   IntrospectionFragmentMatcher
 } from "apollo-cache-inmemory";
+import ApolloClient from "apollo-boost";
 import introspectionQueryResultData from "./fragmentTypes.json";
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({

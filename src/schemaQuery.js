@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
-/* eslint-disable no-underscore-dangle */
 require("dotenv").config({ path: `${__dirname}/../.env.local` });
 const fetch = require("node-fetch");
 const fs = require("fs");
