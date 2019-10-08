@@ -1,0 +1,51 @@
+@import "./hoverable-item.scss";
+
+.section-title {
+  align-items: baseline;
+  display: flex;
+  font-family: Montserrat, sans-serif;
+  justify-content: space-between;
+  margin: 24px 18px;
+
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .total-count {
+    display: flex;
+    font-size: 14px;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0 24px;
+  }
+}
+
+.section-results {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px -18px rgba(0, 0, 0, 0.5);
+  margin: 18px;
+}
+
+.show-more-button {
+  @extend .hoverable-item;
+
+  background: #fff;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: center;
+  outline: none;
+  padding: 18px;
+  transition: all 150ms ease-in-out;
+  width: 100%;
+
+  &:active {
+    color: rgba(11, 95, 255, 0.58);
+  }
+}

@@ -1,0 +1,25 @@
+@import "../shared/hoverable-item.scss";
+@import "../shared/animations.scss";
+
+.RepositoryItem {
+  @extend .hoverable-item;
+  opacity: 0;
+  animation: translateFadeIn 600ms forwards;
+
+  .personal-info {
+    .name,
+    .nameWithOwner,
+    .description {
+      margin-bottom: 6px;
+    }
+
+    .nameWithOwner,
+    .description {
+      color: #333;
+    }
+  }
+
+  .primary-language {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../shared/hoverable-item.scss";
+
+.UserItem {
+  @extend .hoverable-item;
+  opacity: 0;
+  animation: translateFadeIn 600ms forwards;
+
+  .personal-info {
+    .name,
+    .bio,
+    .login {
+      margin-bottom: 6px;
+    }
+
+    .bio {
+      color: #333;
+    }
+
+    .location i {
+      margin-right: 6px;
+      color: #555;
+    }
+  }
+}

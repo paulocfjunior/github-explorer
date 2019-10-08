@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  flex-flow: column;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.search-results {
+  display: grid;
+  grid-template-areas: "users repos";
+  grid-template-columns: 1fr 1fr;
+
+  > div > .Loader {
+    margin: 40px;
+  }
+}
