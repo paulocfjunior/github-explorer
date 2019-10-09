@@ -26,6 +26,17 @@
   border-radius: 12px;
   box-shadow: 0 6px 24px -18px rgba(0, 0, 0, 0.5);
   margin: 18px;
+
+  .empty-results {
+    color: #bbb;
+    display: flex;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    justify-content: center;
+    padding: 18px;
+    user-select: none;
+  }
 }
 
 .show-more-button {

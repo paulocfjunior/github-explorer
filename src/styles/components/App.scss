@@ -8,7 +8,7 @@
 .search-results {
   display: grid;
   grid-template-areas: "users repos";
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(664px, 1fr) minmax(664px, 1fr);
 
   > div > .Loader {
     margin: 40px;

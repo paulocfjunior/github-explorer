@@ -1,41 +1,55 @@
 import "../styles/components/UserItem.scss";
 import { DateTime } from "luxon";
 import React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
-import { limitWords } from "../util/string";
+import { calculateAnimationDelay } from "../util/animation";
+import { limitWords, makeMapsLink } from "../util/string";
+import AnimatedNumber from "./AnimatedNumber";
 import Loader from "./Loader";
 
-function UserResults({ data }) {
+function UserResults({ data, showMoreItems }) {
   const { pageInfo, userCount = 0 } = data.search;
   const users = data.search.edges.map(edge => edge.node);
+
+  const showMoreIfVisible = isVisible => isVisible && showMoreItems();
 
   return (
     <section className="UserResults">
       <div className="section-title">
         <h2>Users</h2>
-        <span className="total-count">
-          {userCount} {userCount === 1 ? "result" : "results"}
-        </span>
+        <AnimatedNumber value={userCount} className="total-count" />
       </div>
       <main className="section-results">
+        {!users.length && <span className="empty-results">No results</span>}
         {users.map((user, index) => (
-          <UserItem key={user.login} user={user} index={index} />
+          <UserItem
+            key={user.login}
+            user={user}
+            animationDelay={calculateAnimationDelay(index, users.length)}
+          />
         ))}
         {pageInfo.hasNextPage && (
-          <button className="show-more-button" type="button">
-            <Loader />
-          </button>
+          <VisibilitySensor onChange={showMoreIfVisible}>
+            <button
+              className="show-more-button"
+              onClick={showMoreIfVisible}
+              type="button"
+            >
+              <Loader />
+            </button>
+          </VisibilitySensor>
         )}
       </main>
     </section>
   );
 }
 
-function UserItem({ user, index }) {
+function UserItem({ user, animationDelay }) {
   return (
-    <div className="UserItem" style={{ animationDelay: `${index * 50}ms` }}>
+    <div className="UserItem" style={{ animationDelay }}>
       <a href={user.url} className="picture">
-        <img src={user.avatarUrl} alt={user.login} />
+        <img decoding="async" src={user.avatarUrl} alt={user.login} />
       </a>
       <div className="personal-info">
         <a href={user.url} className="name">
@@ -49,10 +63,9 @@ function UserItem({ user, index }) {
         {user.location && (
           <a
             className="location"
-            href={`https://maps.google.com/?q=${encodeURIComponent(
-              user.location
-            )}`}
+            href={makeMapsLink(user.location)}
             target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fas fa-map-marker-alt" />
             {user.location}

@@ -6,7 +6,7 @@ function SearchBox({ handleChange }) {
     <div className="SearchBox">
       <input
         onChange={handleChange}
-        placeholder="Search for users, repos, orgs..."
+        placeholder="Search users, repos, orgs"
         tabIndex={0}
       />
       <i className="fas fa-search" />

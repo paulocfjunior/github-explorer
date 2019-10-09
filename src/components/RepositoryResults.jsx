@@ -1,44 +1,53 @@
 import "../styles/components/RepositoryItem.scss";
 import { DateTime } from "luxon";
 import React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
+import { calculateAnimationDelay } from "../util/animation";
 import { limitWords } from "../util/string";
+import AnimatedNumber from "./AnimatedNumber";
 import Loader from "./Loader";
 
-function RepositoryResults({ data }) {
+function RepositoryResults({ data, showMoreItems }) {
   const { pageInfo, repositoryCount = 0 } = data.search;
-  const repos = data.search.edges
-    .filter(({ node }) => node.__typename === "Repository")
-    .map(edge => edge.node);
+  const repos = data.search.edges.map(edge => edge.node);
+
+  const showMoreIfVisible = isVisible => isVisible && showMoreItems();
 
   return (
     <section className="RepositoryResults">
       <div className="section-title">
         <h2>Repositories</h2>
-        <span className="total-count">
-          {repositoryCount} {repositoryCount === 1 ? "result" : "results"}
-        </span>
+        <AnimatedNumber value={repositoryCount} className="total-count" />
       </div>
       <main className="section-results">
+        {!repos.length && <span className="empty-results">No results</span>}
         {repos.map((repo, index) => (
-          <RepositoryItem key={repo.nameWithOwner} repo={repo} index={index} />
+          <RepositoryItem
+            key={repo.nameWithOwner}
+            repo={repo}
+            animationDelay={calculateAnimationDelay(index, repos.length)}
+          />
         ))}
         {pageInfo.hasNextPage && (
-          <button className="show-more-button" type="button">
-            <Loader />
-          </button>
+          <VisibilitySensor onChange={showMoreIfVisible}>
+            <button
+              className="show-more-button"
+              onClick={showMoreIfVisible}
+              type="button"
+            >
+              <Loader />
+            </button>
+          </VisibilitySensor>
         )}
       </main>
     </section>
   );
 }
 
-function RepositoryItem({ repo, index }) {
+function RepositoryItem({ repo, animationDelay }) {
   return (
-    <div
-      className="RepositoryItem"
-      style={{ animationDelay: `${index * 50}ms` }}
-    >
+    <div className="RepositoryItem" style={{ animationDelay }}>
       <a href={repo.url} className="picture">
         <img src={repo.openGraphImageUrl} alt={repo.nameWithOwner} />
       </a>

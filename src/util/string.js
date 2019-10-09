@@ -13,3 +13,11 @@ export function limitWords(text = "", wordsLimit = 10) {
 
   return croppedText.join(" ");
 }
+
+/**
+ * @param {string} location
+ * @return {string}
+ */
+export function makeMapsLink(location) {
+  return `https://maps.google.com/?q=${encodeURIComponent(location)}`;
+}

@@ -52,6 +52,15 @@
     font-style: italic;
     grid-area: details;
     text-align: right;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      #fff,
+      #fff,
+      #fff,
+      #fff,
+      #fff
+    );
 
     .count {
       margin-top: 6px;
