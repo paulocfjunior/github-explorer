@@ -43,11 +43,13 @@ function RepositoryItem({ repo, index }) {
         <img src={repo.openGraphImageUrl} alt={repo.nameWithOwner} />
       </a>
       <div className="personal-info">
-        <a href="/repository" className="name">
+        <a href={repo.url} className="name">
           {repo.name}
         </a>
         <span className="nameWithOwner">{repo.nameWithOwner}</span>
-        <span className="description">{limitWords(repo.description)}</span>
+        {repo.description && (
+          <span className="description">{limitWords(repo.description)}</span>
+        )}
         {repo.primaryLanguage && (
           <span
             className="primary-language"

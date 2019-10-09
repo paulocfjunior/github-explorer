@@ -16,9 +16,16 @@
       color: #333;
     }
 
-    .location i {
-      margin-right: 6px;
+    .location {
       color: #555;
+
+      i {
+        margin-right: 6px;
+      }
+
+      &:hover {
+        color: rgba(11, 95, 255, 0.7);
+      }
     }
   }
 }

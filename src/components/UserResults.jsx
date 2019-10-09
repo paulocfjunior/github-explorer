@@ -38,7 +38,7 @@ function UserItem({ user, index }) {
         <img src={user.avatarUrl} alt={user.login} />
       </a>
       <div className="personal-info">
-        <a href="/user" className="name">
+        <a href={user.url} className="name">
           @{user.login}
           {user.name && ` - ${user.name}`}
         </a>
@@ -47,10 +47,16 @@ function UserItem({ user, index }) {
           <span className="bio">{limitWords(user.description)}</span>
         )}
         {user.location && (
-          <span className="location">
+          <a
+            className="location"
+            href={`https://maps.google.com/?q=${encodeURIComponent(
+              user.location
+            )}`}
+            target="_blank"
+          >
             <i className="fas fa-map-marker-alt" />
             {user.location}
-          </span>
+          </a>
         )}
       </div>
       <div className="details">
