@@ -1,7 +1,7 @@
 import "../styles/components/SearchBox.scss";
 import React from "react";
 
-function SearchBox({ handleChange }) {
+function SearchBox({ handleChange, hintText }) {
   return (
     <div className="SearchBox">
       <input
@@ -10,6 +10,9 @@ function SearchBox({ handleChange }) {
         tabIndex={0}
       />
       <i className="fas fa-search" />
+      <span className="search-hint">
+        Currently showing results for `{hintText}`
+      </span>
     </div>
   );
 }
