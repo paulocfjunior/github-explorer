@@ -30,11 +30,13 @@ function App() {
       <div className="mobile-navigation">
         <PageSwitcher
           label="Users"
+          icon="fas fa-user-friends"
           active={isVisible.users}
           handleClick={() => scrollAndToggle({ type: "SHOW_USERS" })}
         />
         <PageSwitcher
           label="Repos"
+          icon="fas fa-folder"
           active={isVisible.repos}
           handleClick={() => scrollAndToggle({ type: "SHOW_REPOS" })}
         />

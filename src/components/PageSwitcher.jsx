@@ -1,7 +1,7 @@
 import "../styles/components/PageSwitcher.scss";
 import React from "react";
 
-function PageSwitcher({ label, active, handleClick }) {
+function PageSwitcher({ label, active, icon, handleClick }) {
   const activeClass = active ? "active" : "";
   return (
     <button
@@ -9,7 +9,7 @@ function PageSwitcher({ label, active, handleClick }) {
       type="button"
       onClick={handleClick}
     >
-      <i className="fas fa-user-friends" />
+      <i className={icon} />
       <span>{label}</span>
     </button>
   );
