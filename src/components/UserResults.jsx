@@ -55,6 +55,7 @@ function UserItem({ user, animationDelay }) {
         <a href={user.url} className="name">
           @{user.login}
           {user.name && ` - ${user.name}`}
+          {user.repositories && <span className="organization-badge">ORG</span>}
         </a>
         {user.bio && <span className="bio">{limitWords(user.bio)}</span>}
         {user.description && (
@@ -81,6 +82,14 @@ function UserItem({ user, animationDelay }) {
         )}
         {user.following && (
           <span className="count">Following: {user.following.totalCount}</span>
+        )}
+        {user.repositories && (
+          <span className="count">Repos: {user.repositories.totalCount}</span>
+        )}
+        {user.membersWithRole && (
+          <span className="count">
+            Members: {user.membersWithRole.totalCount}
+          </span>
         )}
       </div>
     </div>

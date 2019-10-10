@@ -12,6 +12,24 @@
       margin-bottom: 6px;
     }
 
+    .name {
+      display: flex;
+
+      .organization-badge {
+        background-color: #333;
+        font-size: 12px;
+        margin: 0 12px;
+        color: #fff;
+        padding: 3px 6px;
+        border-radius: 6px;
+        display: flex;
+        align-self: center;
+        height: 20px;
+        font-weight: bold;
+        line-height: 14px;
+      }
+    }
+
     .bio {
       color: #333;
     }

@@ -18,7 +18,6 @@ export default gql`
             description
             openGraphImageUrl
             url
-            sshUrl
             issues {
               totalCount
             }
@@ -26,7 +25,6 @@ export default gql`
               totalCount
             }
             createdAt
-            forkCount
             assignableUsers {
               totalCount
             }

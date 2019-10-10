@@ -23,22 +23,24 @@ export default gql`
             following {
               totalCount
             }
-            websiteUrl
             location
             login
             createdAt
-            updatedAt
           }
           ... on Organization {
             avatarUrl
             name
             description
             url
-            websiteUrl
             location
             login
             createdAt
-            updatedAt
+            repositories {
+              totalCount
+            }
+            membersWithRole {
+              totalCount
+            }
           }
         }
       }
