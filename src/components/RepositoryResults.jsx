@@ -48,11 +48,21 @@ function RepositoryResults({ data, showMoreItems }) {
 function RepositoryItem({ repo, animationDelay }) {
   return (
     <div className="RepositoryItem" style={{ animationDelay }}>
-      <a href={repo.url} className="picture">
+      <a
+        href={repo.url}
+        className="picture"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img src={repo.openGraphImageUrl} alt={repo.nameWithOwner} />
       </a>
       <div className="personal-info">
-        <a href={repo.url} className="name">
+        <a
+          href={repo.url}
+          className="name"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {repo.name}
         </a>
         <span className="nameWithOwner">{repo.nameWithOwner}</span>

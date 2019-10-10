@@ -48,11 +48,21 @@ function UserResults({ data, showMoreItems }) {
 function UserItem({ user, animationDelay }) {
   return (
     <div className="UserItem" style={{ animationDelay }}>
-      <a href={user.url} className="picture">
+      <a
+        href={user.url}
+        className="picture"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img decoding="async" src={user.avatarUrl} alt={user.login} />
       </a>
       <div className="personal-info">
-        <a href={user.url} className="name">
+        <a
+          href={user.url}
+          className="name"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           @{user.login}
           {user.name && ` - ${user.name}`}
           {user.repositories && <span className="organization-badge">ORG</span>}
