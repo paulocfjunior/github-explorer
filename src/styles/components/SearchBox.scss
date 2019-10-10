@@ -7,13 +7,13 @@
   justify-content: center;
   margin: 18px;
   position: relative;
-  width: 44%;
+  width: calc(100% - 36px);
 
   input {
     background-color: #eee;
     border: none;
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 16px;
     outline: none;
     padding: 18px;
     transition: all 300ms ease-in-out;
@@ -31,6 +31,18 @@
     }
   }
 
+  @media (min-width: 426px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 769px) {
+    width: 44%;
+
+    input {
+      font-size: 20px;
+    }
+  }
+
   .fa-search {
     color: rgba(100, 100, 100, 0.5);
     font-size: 24px;
@@ -43,9 +55,15 @@
     animation: fadeIn 600ms ease-in-out forwards;
     bottom: -24px;
     color: #bbb;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
     left: 20px;
     opacity: 0;
     position: absolute;
     user-select: none;
+
+    @media (min-width: 426px) {
+      font-size: 14px;
+    }
   }
 }

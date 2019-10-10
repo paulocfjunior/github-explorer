@@ -1,14 +1,50 @@
+@import "../shared/animations.scss";
+
 .App {
   display: flex;
   flex-flow: column;
-  max-width: 1400px;
   margin: 0 auto;
+  max-width: 1400px;
 }
 
 .search-results {
   display: grid;
-  grid-template-areas: "users repos";
-  grid-template-columns: minmax(664px, 1fr) minmax(664px, 1fr);
+  grid-template-columns: 100%;
+  padding-bottom: 130px;
+
+  @media (min-width: 769px) {
+    padding-bottom: initial;
+  }
+
+  .UserSearch,
+  .RepositorySearch {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .UserSearch,
+  .RepositorySearch {
+    &.visible {
+      visibility: visible;
+      height: initial;
+      overflow: initial;
+      opacity: 0;
+      animation: translateFadeIn 300ms ease-in-out forwards;
+    }
+  }
+
+  @media (min-width: 769px) {
+    grid-template-areas: "users repos";
+    grid-template-columns: 1fr 1fr;
+
+    .UserSearch,
+    .RepositorySearch {
+      visibility: visible;
+      height: initial;
+      overflow: initial;
+    }
+  }
 
   > div > .Loader {
     margin: 40px;

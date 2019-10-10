@@ -16,17 +16,24 @@
       display: flex;
 
       .organization-badge {
-        background-color: #333;
-        font-size: 12px;
-        margin: 0 12px;
-        color: #fff;
-        padding: 3px 6px;
-        border-radius: 6px;
-        display: flex;
         align-self: center;
-        height: 20px;
+        background-color: #333;
+        border-radius: 6px;
+        color: #fff;
+        display: flex;
+        font-size: 9px;
         font-weight: bold;
-        line-height: 14px;
+        height: 18px;
+        line-height: 12px;
+        margin: 0 6px;
+        padding: 3px 6px;
+
+        @media (min-width: 769px) {
+          font-size: 12px;
+          margin: 0 12px;
+          height: 20px;
+          line-height: 14px;
+        }
       }
     }
 
